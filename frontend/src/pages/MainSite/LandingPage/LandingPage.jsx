@@ -3,14 +3,14 @@ import useLangStore from '../../../i18n';
 import useThemeStore from '../../../store/themeStore';
 import Header from '../../../layout/Header';
 import Footer from '../../../layout/Footer';
-import Hero         from './Hero';
+import Hero from './Hero';
 // import Hero3         from './Hero3';
 // import Hero2         from './Hero2';
 // import Stats        from './stats';
-import Features     from './Features';
-import Process      from './Process.jsx';
+import Features from './Features';
+import Process from './Process';
 // import Testimonials from './testimonials';
-import CTA          from './Cta';
+import CTA from './Cta';
 
 /* ── Full SEO — meta + JSON-LD for AI crawlers & Google ── */
 function SEO({ isAr }) {
@@ -41,31 +41,31 @@ function SEO({ isAr }) {
     setMeta('viewport', 'width=device-width, initial-scale=1');
 
     /* Open Graph */
-    setMeta('og:type',        'website',                                  true);
-    setMeta('og:url',         'https://TalexHub.com/',                    true);
-    setMeta('og:title',       isAr ? 'TalexHub | منصة التوظيف الذكية' : 'TalexHub | Smart AI Recruitment', true);
-    setMeta('og:description', desc,                                        true);
-    setMeta('og:image',       'https://TalexHub.com/og-image.png',        true);
-    setMeta('og:locale',      isAr ? 'ar_AR' : 'en_US',                   true);
-    setMeta('og:site_name',   'TalexHub',                                  true);
+    setMeta('og:type', 'website', true);
+    setMeta('og:url', 'https://TalexHub.com/', true);
+    setMeta('og:title', isAr ? 'TalexHub | منصة التوظيف الذكية' : 'TalexHub | Smart AI Recruitment', true);
+    setMeta('og:description', desc, true);
+    setMeta('og:image', 'https://TalexHub.com/og-image.png', true);
+    setMeta('og:locale', isAr ? 'ar_AR' : 'en_US', true);
+    setMeta('og:site_name', 'TalexHub', true);
 
     /* Twitter */
-    setMeta('twitter:card',        'summary_large_image');
-    setMeta('twitter:site',        '@TalexHub');
-    setMeta('twitter:title',       isAr ? 'TalexHub | منصة التوظيف الذكية' : 'TalexHub | Smart AI Recruitment');
+    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:site', '@TalexHub');
+    setMeta('twitter:title', isAr ? 'TalexHub | منصة التوظيف الذكية' : 'TalexHub | Smart AI Recruitment');
     setMeta('twitter:description', desc);
-    setMeta('twitter:image',       'https://TalexHub.com/og-image.png');
+    setMeta('twitter:image', 'https://TalexHub.com/og-image.png');
 
     /* Canonical */
     let canon = document.querySelector('link[rel="canonical"]');
-    if (!canon) { canon = document.createElement('link'); canon.setAttribute('rel','canonical'); document.head.appendChild(canon); }
+    if (!canon) { canon = document.createElement('link'); canon.setAttribute('rel', 'canonical'); document.head.appendChild(canon); }
     canon.setAttribute('href', 'https://TalexHub.com/');
 
     /* Alternate hreflang */
-    ['ar','en'].forEach(l => {
+    ['ar', 'en'].forEach(l => {
       const id = `hreflang-${l}`;
       let el = document.getElementById(id);
-      if (!el) { el = document.createElement('link'); el.id = id; el.setAttribute('rel','alternate'); document.head.appendChild(el); }
+      if (!el) { el = document.createElement('link'); el.id = id; el.setAttribute('rel', 'alternate'); document.head.appendChild(el); }
       el.setAttribute('hreflang', l);
       el.setAttribute('href', `https://TalexHub.com${l === 'ar' ? '/' : '/en/'}`);
     });
@@ -129,14 +129,14 @@ function SEO({ isAr }) {
 ════════════════════════════════════════════════════════════ */
 export default function LandingPage() {
   const { lang, dir } = useLangStore();
-  const { theme }     = useThemeStore();
+  const { theme } = useThemeStore();
   const isAr = lang === 'ar';
 
   return (
     <div dir={dir} style={{
-      minHeight:'100vh',
-      background:'var(--bg-primary)',
-      color:'var(--text-primary)',
+      minHeight: '100vh',
+      background: 'var(--bg-primary)',
+      color: 'var(--text-primary)',
       fontFamily: isAr ? 'var(--font-ar)' : 'var(--font-en)',
     }}>
       <SEO isAr={isAr} />
