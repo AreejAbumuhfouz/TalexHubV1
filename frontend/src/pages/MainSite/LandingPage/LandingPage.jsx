@@ -10,7 +10,7 @@ import Hero         from './Hero';
 import Features     from './Features';
 import Process      from './Process';
 // import Testimonials from './testimonials';
-import CTA          from './cta';
+import CTA          from './Cta';
 
 /* ── Full SEO — meta + JSON-LD for AI crawlers & Google ── */
 function SEO({ isAr }) {
