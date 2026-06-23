@@ -104,7 +104,8 @@ export default function App() {
         {/* <Route path="/jobs"            element={<PublicJobs />} />         */}
         {/* <Route path="/jobs/:id"        element={<PublicJobs />} /> */}
         <Route path="/about" element={<PublicAbout />} />
-         <Route path="/pricing"         element={<PricingPage />} 
+         
+        <Route path="/pricing" element={<PricingPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/support" element={<SupportPage />} />
