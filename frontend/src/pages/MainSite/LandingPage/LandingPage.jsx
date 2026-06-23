@@ -4,12 +4,12 @@ import useThemeStore from '../../../store/themeStore';
 import Header from '../../../layout/Header';
 import Footer from '../../../layout/Footer';
 import Hero         from './Hero';
-import Hero3         from './Hero3';
-import Hero2         from './Hero2';
-import Stats        from './stats';
+// import Hero3         from './Hero3';
+// import Hero2         from './Hero2';
+// import Stats        from './stats';
 import Features     from './Features';
 import Process      from './process';
-import Testimonials from './testimonials';
+// import Testimonials from './testimonials';
 import CTA          from './cta';
 
 /* ── Full SEO — meta + JSON-LD for AI crawlers & Google ── */
