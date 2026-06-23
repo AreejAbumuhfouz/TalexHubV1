@@ -4,55 +4,55 @@ import { LoadingSpinner, ProtectedRoute, PublicRoute } from './components/common
 import useAuthStore from './store/authStore';
 
 // ── Auth ──────────────────────────────────────────────────
-const LoginPage          = lazy(() => import('./pages/auth/LoginPage'));
-const RegisterPage       = lazy(() => import('./pages/auth/RegisterPage'));
+const LoginPage = lazy(() => import('./pages/auth/LoginPage'));
+const RegisterPage = lazy(() => import('./pages/auth/RegisterPage'));
 const GoogleCallbackPage = lazy(() => import('./pages/auth/GoogleCallbackPage'));
 
 // ── Admin ─────────────────────────────────────────────────
 const AdminDashboard = lazy(() => import('./Admin/AdminDashboard'));
 
 // ── Public pages ──────────────────────────────────────────
-const LandingPage       = lazy(() => import('./pages/MainSite/LandingPage/LandingPage'));
-const PublicJobs        = lazy(() => import('./pages/MainSite/JobsPage'));
-const PublicAbout       = lazy(() => import('./pages/MainSite/AboutPage'));
+const LandingPage = lazy(() => import('./pages/MainSite/LandingPage/LandingPage'));
+// const PublicJobs        = lazy(() => import('./pages/MainSite/JobsPage'));
+const PublicAbout = lazy(() => import('./pages/MainSite/AboutPage'));
 // const PricingPage       = lazy(() => import('./pages/Dashboard/PricingPage'));
-const PrivacyPage       = lazy(() => import('./pages/MainSite/Privacy'));
-const TermsPage         = lazy(() => import('./pages/MainSite/Terms'));
-const SupportPage       = lazy(() => import('./pages/MainSite/Support'));
-const CookiesPage       = lazy(() => import('./pages/MainSite/Cookies'));
-const FAQPage           = lazy(() => import('./pages/MainSite/FAQ'));
+const PrivacyPage = lazy(() => import('./pages/MainSite/Privacy'));
+const TermsPage = lazy(() => import('./pages/MainSite/Terms'));
+const SupportPage = lazy(() => import('./pages/MainSite/Support'));
+const CookiesPage = lazy(() => import('./pages/MainSite/Cookies'));
+const FAQPage = lazy(() => import('./pages/MainSite/FAQ'));
 // const ComingSoon        = lazy(() => import('./pages/MainSite/ComingSoon'));
-const NotFound          = lazy(() => import('./pages/MainSite/NotFound'));
-const PublicContact     = lazy(() => import('./pages/MainSite/ContactPage'));
-const FeaturesPage      = lazy(() => import('./pages/MainSite/Features/FeaturesPage'));
+const NotFound = lazy(() => import('./pages/MainSite/NotFound'));
+const PublicContact = lazy(() => import('./pages/MainSite/ContactPage'));
+const FeaturesPage = lazy(() => import('./pages/MainSite/Features/FeaturesPage'));
 const FeatureDetailPage = lazy(() => import('./pages/MainSite/Features/FeatureDetailPage'));
 
 // ── User Dashboard ────────────────────────────────────────
-const DashboardPage  = lazy(() => import('./pages/Dashboard/DashboardPage'));
-const ProfilePage    = lazy(() => import('./pages/Dashboard/ProfilePage'));
-const SettingsPage   = lazy(() => import('./pages/Dashboard/SettingsPage'));
-const CVPage         = lazy(() => import('./components/cv/CVPage'));
-const UserJobsPage   = lazy(() => import('./pages/Dashboard/UserJobsPage'));
-const DashJobDetail  = lazy(() => import('./pages/Dashboard/JobDetailPage'));
-const CommunityPage  = lazy(() => import('./pages/Dashboard/CommunityPage'));
-const ChatRoomsPage  = lazy(() => import('./pages/Dashboard/ChatRoomsPage'));
+const DashboardPage = lazy(() => import('./pages/Dashboard/DashboardPage'));
+const ProfilePage = lazy(() => import('./pages/Dashboard/ProfilePage'));
+const SettingsPage = lazy(() => import('./pages/Dashboard/SettingsPage'));
+const CVPage = lazy(() => import('./components/cv/CVPage'));
+const UserJobsPage = lazy(() => import('./pages/Dashboard/UserJobsPage'));
+const DashJobDetail = lazy(() => import('./pages/Dashboard/JobDetailPage'));
+const CommunityPage = lazy(() => import('./pages/Dashboard/CommunityPage'));
+const ChatRoomsPage = lazy(() => import('./pages/Dashboard/ChatRoomsPage'));
 const CareerPathPage = lazy(() => import('./pages/Dashboard/CareerPathPage'));
-const CoursesPage    = lazy(() => import('./pages/Dashboard/CoursesPage'));
-const InterviewPage  = lazy(() => import('./pages/Dashboard/InterviewPage'));
-const WalletPage     = lazy(() => import('./pages/Dashboard/WalletPage'));
+const CoursesPage = lazy(() => import('./pages/Dashboard/CoursesPage'));
+const InterviewPage = lazy(() => import('./pages/Dashboard/InterviewPage'));
+const WalletPage = lazy(() => import('./pages/Dashboard/WalletPage'));
 
 // ── Company ───────────────────────────────────────────────
-const CompanyRegisterPage      = lazy(() => import('./pages/Company/CompanyRegisterPage'));
-const CompanyDashboard         = lazy(() => import('./pages/Company/CompanyDashboard'));
-const CompanyJobsPage          = lazy(() => import('./pages/Company/CompanyJobsPage'));
-const CompanyApplicantsPage    = lazy(() => import('./pages/Company/CompanyApplicantsPage'));
-const CompanyProfilePage       = lazy(() => import('./pages/Company/CompanyProfilePage'));
+const CompanyRegisterPage = lazy(() => import('./pages/Company/CompanyRegisterPage'));
+const CompanyDashboard = lazy(() => import('./pages/Company/CompanyDashboard'));
+const CompanyJobsPage = lazy(() => import('./pages/Company/CompanyJobsPage'));
+const CompanyApplicantsPage = lazy(() => import('./pages/Company/CompanyApplicantsPage'));
+const CompanyProfilePage = lazy(() => import('./pages/Company/CompanyProfilePage'));
 // const CompanyMembersPage       = lazy(() => import('./pages/Company/CompanyMembersPage'));
 const CompanyNotificationsPage = lazy(() => import('./pages/Company/CompanyNotificationsPage'));
-const CompanySettingsPage      = lazy(() => import('./pages/Company/CompanySettingsPage'));
-const CompanyPipelinesPage     = lazy(() => import('./pages/Company/CompanyPipelinePage'));
-const AnalyticsPage            = lazy(() => import('./pages/Company/CompanyAnalyticsPage'));
-const CompanyNewJobPage        = lazy(() => import('./pages/Company/CompanyNewJobPage'));
+const CompanySettingsPage = lazy(() => import('./pages/Company/CompanySettingsPage'));
+const CompanyPipelinesPage = lazy(() => import('./pages/Company/CompanyPipelinePage'));
+const AnalyticsPage = lazy(() => import('./pages/Company/CompanyAnalyticsPage'));
+const CompanyNewJobPage = lazy(() => import('./pages/Company/CompanyNewJobPage'));
 
 /* ── Helper: where to redirect after login by role ──────── */
 export const getDashboardByRole = (role) => {
@@ -60,8 +60,8 @@ export const getDashboardByRole = (role) => {
     case 'admin':
     case 'support': return '/admin';
     case 'company': return '/company/dashboard'; // ✅ FIX #4: was '/company/' (no route existed)
-    case 'user':    return '/dashboard';
-    default:        return '/dashboard';
+    case 'user': return '/dashboard';
+    default: return '/dashboard';
   }
 };
 
@@ -75,7 +75,7 @@ export default function App() {
     if (isAuthenticated) {
       checkAuth();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (isAuthenticated && isLoading) {
@@ -100,25 +100,25 @@ export default function App() {
         {/* ════════════════════════════════════════════════
             PUBLIC
         ════════════════════════════════════════════════ */}
-        <Route path="/"                element={<LandingPage />} />
-        {/* <Route path="/jobs"            element={<PublicJobs />} />         {/* ✅ FIX #5: was commented out */} */}
+        <Route path="/" element={<LandingPage />} />
+        {/* <Route path="/jobs"            element={<PublicJobs />} />         */}
         {/* <Route path="/jobs/:id"        element={<PublicJobs />} /> */}
-        <Route path="/about"           element={<PublicAbout />} />
+        <Route path="/about" element={<PublicAbout />} />
         {/* <Route path="/pricing"         element={<PricingPage />} /> */}
-        <Route path="/privacy"         element={<PrivacyPage />} />
-        <Route path="/terms"           element={<TermsPage />} />
-        <Route path="/support"         element={<SupportPage />} />
-        <Route path="/cookies"         element={<CookiesPage />} />
-        <Route path="/faq"             element={<FAQPage />} />
-        <Route path="/contact"         element={<PublicContact />} />
-        <Route path="/features"        element={<FeaturesPage />} />
-        <Route path="/features/:slug"  element={<FeatureDetailPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/support" element={<SupportPage />} />
+        <Route path="/cookies" element={<CookiesPage />} />
+        <Route path="/faq" element={<FAQPage />} />
+        <Route path="/contact" element={<PublicContact />} />
+        <Route path="/features" element={<FeaturesPage />} />
+        <Route path="/features/:slug" element={<FeatureDetailPage />} />
 
         {/* ════════════════════════════════════════════════
             AUTH
         ════════════════════════════════════════════════ */}
-        <Route path="/login"         element={<PublicRoute><LoginPage /></PublicRoute>} />
-        <Route path="/register"      element={<RegisterPage />} />
+        <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/auth/callback" element={<GoogleCallbackPage />} />
 
         {/* ════════════════════════════════════════════════
@@ -210,7 +210,7 @@ export default function App() {
           }
         />
 
-       
+
 
         <Route path="/company/notifications"
           element={
