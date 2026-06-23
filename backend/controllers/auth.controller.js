@@ -221,9 +221,14 @@ exports.googleCallback = async (req, res) => {
     const accessToken  = generateAccessToken(user.id, user.role);
     const refreshToken = await generateRefreshToken(user.id, req.ip, req.headers['user-agent'], true);
 
-    setAuthCookies(res, accessToken, refreshToken, true);
+    // ✅ بعث التوكنات في الـ URL — الفرونت يحفظهم في الكوكيز
+    // هاد الحل الوحيد اللي يشتغل مع cross-origin redirect
+    const params = new URLSearchParams({
+      accessToken,
+      refreshToken,
+    });
 
-    res.redirect(`${process.env.FRONTEND_URL}/auth/callback`);
+    res.redirect(`${process.env.FRONTEND_URL}/auth/callback?${params.toString()}`);
   } catch {
     res.redirect(`${process.env.FRONTEND_URL}/login?error=google_failed`);
   }
