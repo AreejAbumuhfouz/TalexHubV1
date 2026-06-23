@@ -712,7 +712,8 @@ app.use(session({
   cookie: {
     secure:   IS_PROD,
     httpOnly: true,
-    sameSite: IS_PROD ? 'strict' : 'lax',
+    // sameSite: IS_PROD ? 'strict' : 'lax',
+    sameSite: 'none',
     maxAge:   24 * 60 * 60 * 1000,
   },
 }));
@@ -728,7 +729,8 @@ app.get(`${API}/csrf-token`, (req, res) => {
     httpOnly: true,
     signed:   true,
     secure:   IS_PROD,
-    sameSite: IS_PROD ? 'strict' : 'lax',
+    // sameSite: IS_PROD ? 'strict' : 'lax',
+    sameSite: 'none', 
     maxAge:   60 * 60 * 1000,
   });
 
