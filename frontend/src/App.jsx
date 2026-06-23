@@ -20,7 +20,7 @@ const PrivacyPage = lazy(() => import('./pages/MainSite/Privacy'));
 const TermsPage = lazy(() => import('./pages/MainSite/Terms'));
 const SupportPage = lazy(() => import('./pages/MainSite/Support'));
 const CookiesPage = lazy(() => import('./pages/MainSite/Cookies'));
-const FAQPage = lazy(() => import('./pages/MainSite/FAQ'));
+// const FAQPage = lazy(() => import('./pages/MainSite/FAQ'));
 // const ComingSoon        = lazy(() => import('./pages/MainSite/ComingSoon'));
 const NotFound = lazy(() => import('./pages/MainSite/NotFound'));
 const PublicContact = lazy(() => import('./pages/MainSite/ContactPage'));
@@ -109,7 +109,7 @@ export default function App() {
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/support" element={<SupportPage />} />
         <Route path="/cookies" element={<CookiesPage />} />
-        <Route path="/faq" element={<FAQPage />} />
+        {/* <Route path="/faq" element={<FAQPage />} /> */}
         <Route path="/contact" element={<PublicContact />} />
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/features/:slug" element={<FeatureDetailPage />} />
