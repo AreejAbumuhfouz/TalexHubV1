@@ -15,7 +15,7 @@ const AdminDashboard = lazy(() => import('./Admin/AdminDashboard'));
 const LandingPage = lazy(() => import('./pages/MainSite/LandingPage/LandingPage'));
 // const PublicJobs        = lazy(() => import('./pages/MainSite/JobsPage'));
 const PublicAbout = lazy(() => import('./pages/MainSite/AboutPage'));
-// const PricingPage       = lazy(() => import('./pages/Dashboard/PricingPage'));
+const PricingPage       = lazy(() => import('./pages/Dashboard/PricingPage'));
 const PrivacyPage = lazy(() => import('./pages/MainSite/Privacy'));
 const TermsPage = lazy(() => import('./pages/MainSite/Terms'));
 const SupportPage = lazy(() => import('./pages/MainSite/Support'));
@@ -104,7 +104,7 @@ export default function App() {
         {/* <Route path="/jobs"            element={<PublicJobs />} />         */}
         {/* <Route path="/jobs/:id"        element={<PublicJobs />} /> */}
         <Route path="/about" element={<PublicAbout />} />
-        {/* <Route path="/pricing"         element={<PricingPage />} /> */}
+         <Route path="/pricing"         element={<PricingPage />} 
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/support" element={<SupportPage />} />
