@@ -8,7 +8,7 @@ import Hero from './Hero';
 // import Hero2         from './Hero2';
 // import Stats        from './stats';
 import Features from './Features';
-import Process from './Process';
+// import Process from './Process';
 // import Testimonials from './testimonials';
 import CTA from './Cta';
 
@@ -148,7 +148,7 @@ export default function LandingPage() {
         {/* <Hero3 /> */}
         {/* <Stats /> */}
         <Features />
-        <Process />
+        {/* <Process /> */}
         {/* <Testimonials /> */}
         <CTA />
       </main>
