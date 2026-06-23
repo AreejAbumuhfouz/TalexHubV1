@@ -22,8 +22,9 @@ const setAuthCookies = (res, accessToken, refreshToken, rememberMe = false) => {
   const base = {
     httpOnly: true,
     secure:   IS_PROD,                    // ✅ true في production
-    sameSite: IS_PROD ? 'none' : 'lax',  // ✅ 'none' عشان cross-origin
-    path:     '/',
+    // sameSite: IS_PROD ? 'none' : 'lax',  // ✅ 'none' عشان cross-origin
+    sameSite: 'lax',
+     path:     '/',
   };
   res.cookie('accessToken',  accessToken,  { ...base, maxAge: 15 * 60 * 1000 });
   res.cookie('refreshToken', refreshToken, {
@@ -211,6 +212,29 @@ exports.login = async (req, res) => {
 /* ════════════════════════════════════════════════════════════
    GOOGLE CALLBACK
 ════════════════════════════════════════════════════════════ */
+// exports.googleCallback = async (req, res) => {
+//   try {
+//     const user = req.user;
+//     if (!user) return res.redirect(`${process.env.FRONTEND_URL}/login?error=google_failed`);
+
+//     saveGeoToProfile(user, req);
+
+//     const accessToken  = generateAccessToken(user.id, user.role);
+//     const refreshToken = await generateRefreshToken(user.id, req.ip, req.headers['user-agent'], true);
+
+//     // ✅ بعث التوكنات في الـ URL — الفرونت يحفظهم في الكوكيز
+//     // هاد الحل الوحيد اللي يشتغل مع cross-origin redirect
+//     const params = new URLSearchParams({
+//       accessToken,
+//       refreshToken,
+//     });
+
+//     res.redirect(`${process.env.FRONTEND_URL}/auth/callback?${params.toString()}`);
+//   } catch {
+//     res.redirect(`${process.env.FRONTEND_URL}/login?error=google_failed`);
+//   }
+// };
+
 exports.googleCallback = async (req, res) => {
   try {
     const user = req.user;
@@ -221,14 +245,10 @@ exports.googleCallback = async (req, res) => {
     const accessToken  = generateAccessToken(user.id, user.role);
     const refreshToken = await generateRefreshToken(user.id, req.ip, req.headers['user-agent'], true);
 
-    // ✅ بعث التوكنات في الـ URL — الفرونت يحفظهم في الكوكيز
-    // هاد الحل الوحيد اللي يشتغل مع cross-origin redirect
-    const params = new URLSearchParams({
-      accessToken,
-      refreshToken,
-    });
+    // ✅ كوكيز عادية — بتشتغل لأن الـ proxy خلى كل شيء على نفس الدومين
+    setAuthCookies(res, accessToken, refreshToken, true);
 
-    res.redirect(`${process.env.FRONTEND_URL}/auth/callback?${params.toString()}`);
+    res.redirect(`${process.env.FRONTEND_URL}/auth/callback`);
   } catch {
     res.redirect(`${process.env.FRONTEND_URL}/login?error=google_failed`);
   }
