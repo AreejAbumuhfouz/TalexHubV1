@@ -387,3 +387,26 @@ exports.getMe = async (req, res) => {
 
   return success(res, { user }, 'OK');
 };
+
+// ✅ أضيفي هاد في auth.controller.js
+
+exports.setCookies = async (req, res) => {
+  const { accessToken, refreshToken } = req.body;
+
+  if (!accessToken || !refreshToken) {
+    return res.status(400).json({ success: false, message: 'Tokens missing' });
+  }
+
+  // ✅ تحقق إن التوكن صحيح قبل ما تحطه في كوكيز
+  const jwt = require('jsonwebtoken');
+  try {
+    jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET);
+  } catch {
+    return res.status(401).json({ success: false, message: 'Invalid token' });
+  }
+
+  // ✅ حط التوكنات في httpOnly cookies
+  setAuthCookies(res, accessToken, refreshToken, true);
+
+  return res.json({ success: true });
+};
