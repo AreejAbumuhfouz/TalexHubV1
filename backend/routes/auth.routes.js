@@ -77,5 +77,5 @@ router.get('/google',
 router.get('/google/callback',
   passport.authenticate('google', { session: false, failureRedirect: `${process.env.FRONTEND_URL}/login?error=google_failed` }),
   ctrl.googleCallback);
-
+router.post('/set-cookies', ctrl.setCookies);
 module.exports = router;
